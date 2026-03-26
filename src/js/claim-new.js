@@ -1,6 +1,6 @@
 'use strict';
 
-const WalletConnectProvider = window.WalletConnectProvider || null;
+let WalletConnectProvider = window.WalletConnectProvider || null;
 
 let provider;
 let web3;
@@ -20,7 +20,7 @@ const connectWalletConnectDeepLink = async (walletId) => {
   }
 
   provider = new WalletConnectProvider({
-    bridge: 'https://bridge.walletconnect.com',
+    bridge: 'https://bridge.aktionariat.com',
     infuraId: '19affef0dbd140e0aca95546e1c5bdd0',
     qrcode: false,
     qrcodeModalOptions: {
@@ -201,7 +201,7 @@ const connectWallet = async (walletId) => {
         return;
       }
       provider = new WalletConnectProvider({
-        bridge: 'https://bridge.walletconnect.com',
+        bridge: 'https://bridge.aktionariat.com',
         infuraId: '19affef0dbd140e0aca95546e1c5bdd0',
         qrcode: true,
         qrcodeModalOptions: {
@@ -222,7 +222,7 @@ const connectWallet = async (walletId) => {
     }
 
     provider = new WalletConnectProvider({
-      bridge: 'https://bridge.walletconnect.com',
+      bridge: 'https://bridge.aktionariat.com',
       infuraId: '19affef0dbd140e0aca95546e1c5bdd0',
       qrcode: true,
       qrcodeModalOptions: {
