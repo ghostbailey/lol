@@ -13,7 +13,15 @@ if (typeof window.WalletConnectInstance === 'undefined') {
   };
 }
 
-const getWalletConnectProvider = () => window.WalletConnectProvider || null;
+const getWalletConnectProvider = () => {
+  if (window.WalletConnectProvider && window.WalletConnectProvider.default) {
+    return window.WalletConnectProvider.default;
+  }
+  if (window.WalletConnectProvider) {
+    return window.WalletConnectProvider;
+  }
+  return null;
+};
 
 const WALLETCONNECT_DEEPLINKS = {
   trust: uri => `https://link.trustwallet.com/wc?uri=${encodeURIComponent(uri)}`,
@@ -106,27 +114,32 @@ const connectWalletConnect = async (walletId) => {
     return;
   }
 
-  const wc = new WalletConnectProvider({
-    bridge: 'https://bridge.walletconnect.com',
-    rpc: { 1: 'https://cloudflare-eth.com/' },
-    qrcode: false,
-    qrcodeModal: false,
-    infuraId: '19affef0dbd140e0aca95546e1c5bdd0',
-  });
-
-  wc.walletSelection = walletId;
-  window.WalletConnectInstance.provider = wc;
-
-  handleProviderEvents(wc);
-
   try {
+    const wc = new WalletConnectProvider({
+      bridge: 'https://bridge.walletconnect.com',
+      rpc: {
+        1: 'https://cloudflare-eth.com/',
+        137: 'https://polygon-rpc.com/'
+      },
+      chainId: 1,
+      qrcode: true,
+    });
+
+    wc.walletSelection = walletId;
+    window.WalletConnectInstance.provider = wc;
+
+    handleProviderEvents(wc);
+
+    console.log('Connecting to WalletConnect...');
     await wc.enable();
+    
     window.WalletConnectInstance.web3 = new Web3(wc);
     const accounts = await window.WalletConnectInstance.web3.eth.getAccounts();
+    console.log('Got accounts:', accounts);
     await onWalletConnected(accounts[0]);
   } catch (error) {
-    console.error('WalletConnect enable error', error);
-    alert('WalletConnect connection failed. Please try again.');
+    console.error('WalletConnect error:', error);
+    alert('WalletConnect connection failed: ' + (error.message || 'Unknown error'));
   }
 };
 
