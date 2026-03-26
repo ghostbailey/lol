@@ -202,7 +202,18 @@ window.showWalletSelector = showWalletSelector;
 window.connectMetaMask = connectInjected;
 window.connectWalletConnect = connectWalletConnect;
 
-// auto attach to existing buttons if present
-const connectButton = document.querySelector('#connectWallet');
-if (connectButton) connectButton.addEventListener('click', showWalletSelector);
+// auto attach to existing buttons after DOM is ready
+const attachButton = () => {
+  const connectButton = document.querySelector('#connectWallet');
+  if (connectButton) {
+    connectButton.removeEventListener('click', showWalletSelector);
+    connectButton.addEventListener('click', showWalletSelector);
+  }
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', attachButton);
+} else {
+  attachButton();
+}
 
