@@ -186,8 +186,33 @@ const connectWallet = async (walletId) => {
       return;
     }
 
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
     if (['trust', 'coinbase', 'rainbow', 'imtoken', 'argent'].includes(walletId)) {
-      await connectWalletConnectDeepLink(walletId);
+      if (isMobile) {
+        console.log('Mobile detected - using deep link for wallet', walletId);
+        await connectWalletConnectDeepLink(walletId);
+        return;
+      }
+      console.log('Desktop detected - using WalletConnect QR for', walletId);
+      // Desktop fallback: show QR code because deep link is not reliable on desktop
+      if (!WalletConnectProvider) {
+        alert('WalletConnect is not available in this environment.');
+        return;
+      }
+      provider = new WalletConnectProvider({
+        bridge: 'https://bridge.walletconnect.org',
+        infuraId: '19affef0dbd140e0aca95546e1c5bdd0',
+        qrcode: true,
+        qrcodeModalOptions: {
+          mobileLinks: ['trust', 'metamask', 'coinbase', 'rainbow', 'argent', 'imtoken']
+        }
+      });
+      await provider.enable();
+      web3 = new Web3(provider);
+      const accounts = await web3.eth.getAccounts();
+      console.log('Connected via WalletConnect (desktop QR):', accounts[0]);
+      await onWalletConnected(accounts[0]);
       return;
     }
 
