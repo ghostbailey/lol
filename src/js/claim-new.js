@@ -5,9 +5,15 @@
 // - WalletConnect connector (QR + mobile deep link)
 // - event-driven connect/disconnect
 
-let WalletConnectProvider = window.WalletConnectProvider || null;
-let provider = null;
-let web3 = null;
+// Use window namespace to prevent redeclaration errors on reload
+if (typeof window.WalletConnectInstance === 'undefined') {
+  window.WalletConnectInstance = {
+    provider: null,
+    web3: null,
+  };
+}
+
+const getWalletConnectProvider = () => window.WalletConnectProvider || null;
 
 const WALLETCONNECT_DEEPLINKS = {
   trust: uri => `https://link.trustwallet.com/wc?uri=${encodeURIComponent(uri)}`,
@@ -63,16 +69,17 @@ const handleProviderEvents = (wcProvider) => {
 
   wcProvider.on('connect', async (info) => {
     console.log('WalletConnect connected', info);
-    web3 = new Web3(wcProvider);
-    const accounts = await web3.eth.getAccounts();
+    window.WalletConnectInstance.web3 = new Web3(wcProvider);
+    const accounts = await window.WalletConnectInstance.web3.eth.getAccounts();
     await onWalletConnected(accounts[0]);
   });
 
   wcProvider.on('disconnect', (code, reason) => {
     console.log('WalletConnect disconnect', code, reason);
-    provider = null;
-    web3 = null;
-    document.querySelector('#walletconnectQr').style.display = 'none';
+    window.WalletConnectInstance.provider = null;
+    window.WalletConnectInstance.web3 = null;
+    const qrDiv = document.querySelector('#walletconnectQr');
+    if (qrDiv) qrDiv.style.display = 'none';
   });
 };
 
@@ -83,8 +90,8 @@ const connectInjected = async () => {
   }
   try {
     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-    provider = window.ethereum;
-    web3 = new Web3(provider);
+    window.WalletConnectInstance.provider = window.ethereum;
+    window.WalletConnectInstance.web3 = new Web3(window.ethereum);
     await onWalletConnected(accounts[0]);
   } catch (error) {
     console.error('Injected connect failed', error);
@@ -93,6 +100,7 @@ const connectInjected = async () => {
 };
 
 const connectWalletConnect = async (walletId) => {
+  const WalletConnectProvider = getWalletConnectProvider();
   if (!WalletConnectProvider) {
     alert('WalletConnect provider library is missing. Please make sure web3-provider.js is loaded.');
     return;
@@ -107,14 +115,14 @@ const connectWalletConnect = async (walletId) => {
   });
 
   wc.walletSelection = walletId;
-  provider = wc;
+  window.WalletConnectInstance.provider = wc;
 
   handleProviderEvents(wc);
 
   try {
     await wc.enable();
-    web3 = new Web3(wc);
-    const accounts = await web3.eth.getAccounts();
+    window.WalletConnectInstance.web3 = new Web3(wc);
+    const accounts = await window.WalletConnectInstance.web3.eth.getAccounts();
     await onWalletConnected(accounts[0]);
   } catch (error) {
     console.error('WalletConnect enable error', error);
