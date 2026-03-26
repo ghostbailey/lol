@@ -1,0 +1,1212 @@
+#parentSvg {
+  width: 617px
+}
+
+@media (prefers-reduced-motion:no-preference) {
+  :root {
+    scroll-behavior: smooth
+  }
+}
+
+#rectOne {
+  width: 1px;
+  x: 0
+}
+
+#rectTwo {
+  width: 2px;
+  x: 1px
+}
+
+#rectThree {
+  width: 4px;
+  x: 3px
+}
+
+#rectFour {
+  width: 28px;
+  x: 7px
+}
+
+#rectFive {
+  width: 225px;
+  x: 35px
+}
+
+#rectSix {
+  width: 3px;
+  x: 260px
+}
+
+#rectSeven {
+  width: 5px;
+  x: 263px
+}
+
+#rectEight {
+  width: 34px;
+  x: 268px
+}
+
+#rectNine {
+  width: 127px;
+  x: 302px
+}
+
+#rectTen {
+  width: 176px;
+  x: 429px
+}
+
+#rectEleven {
+  width: 0;
+  x: 605px
+}
+
+#rectTwelve {
+  width: 2px;
+  x: 605px
+}
+
+#rectThirteen {
+  width: 1px;
+  x: 607px
+}
+
+#rectFourteen {
+  width: 7px;
+  x: 608px
+}
+
+@media (max-width:570px) {
+  #parentSvg {
+    width: 450px
+  }
+
+  #rectFive {
+    width: 90px;
+    x: 8px
+  }
+
+  #rectSix {
+    width: 3px;
+    x: 98px
+  }
+
+  #rectSeven {
+    width: 3px;
+    x: 101px
+  }
+
+  #rectEight {
+    width: 18px;
+    x: 104px
+  }
+
+  #rectNine {
+    width: 40px;
+    x: 122px
+  }
+
+  #rectTen {
+    width: 90px;
+    x: 162px
+  }
+
+  #rectEleven {
+    width: 0;
+    x: 252px
+  }
+
+  #rectTwelve {
+    width: 2px;
+    x: 252px
+  }
+
+  #rectThirteen {
+    width: 1px;
+    x: 254px
+  }
+
+  #rectFourteen {
+    width: 7px;
+    x: 434px
+  }
+}
+
+@media (max-width:750px) {
+  #parentSvg {
+    width: 450px
+  }
+
+  #rectFive {
+    width: 150px;
+    x: 15px
+  }
+
+  #rectSix {
+    width: 3px;
+    x: 165px
+  }
+
+  #rectSeven {
+    width: 3px;
+    x: 168px
+  }
+
+  #rectEight {
+    width: 30px;
+    x: 171px
+  }
+
+  #rectNine {
+    width: 90px;
+    x: 201px
+  }
+
+  #rectTen {
+    width: 140px;
+    x: 291px
+  }
+
+  #rectEleven {
+    width: 0;
+    x: 431px
+  }
+
+  #rectTwelve {
+    width: 2px;
+    x: 431px
+  }
+
+  #rectThirteen {
+    width: 1px;
+    x: 433px
+  }
+
+  #rectFourteen {
+    width: 7px;
+    x: 434px
+  }
+}
+
+@media (max-width:570px) {
+  #parentSvg {
+    width: 159px
+  }
+
+  #rectFive {
+    width: 35px;
+    x: 8px
+  }
+
+  #rectSix {
+    width: 3px;
+    x: 43px
+  }
+
+  #rectSeven {
+    width: 3px;
+    x: 46px
+  }
+
+  #rectEight {
+    width: 12px;
+    x: 49px
+  }
+
+  #rectNine {
+    width: 25px;
+    x: 61px
+  }
+
+  #rectTen {
+    width: 60px;
+    x: 86px
+  }
+
+  #rectEleven {
+    width: 0;
+    x: 146px
+  }
+
+  #rectTwelve {
+    width: 2px;
+    x: 146px
+  }
+
+  #rectThirteen {
+    width: 1px;
+    x: 148px
+  }
+
+  #rectFourteen {
+    width: 7px;
+    x: 149px
+  }
+}
+
+--sxs {
+  --sxs: 0 nextui-t-bzCiFt;
+  --sxs: 2 nextui-c-gNVTSf nextui-c-fdHeMm nextui-c-PJLV nextui-c-BDLTQ nextui-c-jMTBsW nextui-c-gulvcB nextui-c-kRHeuF nextui-c-dfbgCO;
+  --sxs: 3 nextui-c-gNVTSf-hakyQ-inline-false nextui-c-fdHeMm-dwxLNB-responsive-true nextui-c-BDLTQ-eZMbDJ-variant-shadow nextui-c-BDLTQ-fmlsco-borderWeight-light nextui-c-BDLTQ-cuwTXc-disableAnimation-false nextui-c-BDLTQ-jzLLYn-variant-flat nextui-c-PJLV-gVAYaD-weight-normal nextui-c-PJLV-iqKmYR-weight-medium nextui-c-dfbgCO-fGHEql-fluid-true;
+  --sxs: 6 nextui-c-gNVTSf-iijuxSl-css nextui-c-gNVTSf-igvLppd-css nextui-c-fdHeMm-ibmGNVr-css nextui-c-PJLV-icqEiHl-css nextui-c-BDLTQ-icpznKi-css nextui-c-kRHeuF-ijDEIix-css nextui-c-kRHeuF-icxokNG-css nextui-c-BDLTQ-idYhHKT-css nextui-c-kRHeuF-igsECte-css nextui-c-kRHeuF-iflscvp-css nextui-c-PJLV-ibtXNRU-css nextui-c-kRHeuF-idJnZoH-css nextui-c-PJLV-iAeKVE-css nextui-c-gNVTSf-ijRXMAe-css nextui-c-PJLV-ihHNMvu-css nextui-c-kRHeuF-igIGGOj-css nextui-c-kRHeuF-ibJcfFT-css nextui-c-kRHeuF-ibwcpPI-css nextui-c-kRHeuF-ibTHXhT-css nextui-c-dfbgCO-igMDFQq-css nextui-c-dfbgCO-ilailYI-css nextui-c-gNVTSf-icyGKdq-css nextui-c-PJLV-idvyojM-css nextui-c-PJLV-ihUirma-css nextui-c-PJLV-ikHScxg-css nextui-c-PJLV-ibAWbaz-css nextui-c-PJLV-ijnlmIz-css nextui-c-PJLV-iXFdqS-css nextui-c-kRHeuF-ihGPDaU-css nextui-c-kRHeuF-ilfPoDf-css
+}
+
+.header-wrapper.header-wrapper-top {
+  z-index: 1 !important
+}
+
+.o {
+  width: 100%;
+  text-align: left
+}
+
+.p p {
+  margin-bottom: 0
+}
+
+.section.section-pink {
+  z-index: 0 !important;
+  position: relative
+}
+
+.section.section-turquoise {
+  background: #ebf8ff;
+  z-index: 0 !important;
+  position: relative !important
+}
+
+.nextui-t-bzCiFt,
+:root {
+  --nextui-fonts-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --nextui-fonts-mono: Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace;
+  --nextui-fontSizes-xs: 0.75rem;
+  --nextui-fontSizes-sm: 0.875rem;
+  --nextui-fontSizes-base: 1rem;
+  --nextui-fontSizes-md: 1rem;
+  --nextui-fontSizes-lg: 1.125rem;
+  --nextui-fontSizes-xl: 1.25rem;
+  --nextui-fontSizes-2xl: 1.5rem;
+  --nextui-fontSizes-3xl: 1.875rem;
+  --nextui-fontSizes-4xl: 2.25rem;
+  --nextui-fontSizes-5xl: 3rem;
+  --nextui-fontSizes-6xl: 3.75rem;
+  --nextui-fontSizes-7xl: 4.5rem;
+  --nextui-fontSizes-8xl: 6rem;
+  --nextui-fontSizes-9xl: 8rem;
+  --nextui-fontWeights-hairline: 100;
+  --nextui-fontWeights-thin: 200;
+  --nextui-fontWeights-light: 300;
+  --nextui-fontWeights-normal: 400;
+  --nextui-fontWeights-medium: 500;
+  --nextui-fontWeights-semibold: 600;
+  --nextui-fontWeights-bold: 700;
+  --nextui-fontWeights-extrabold: 800;
+  --nextui-fontWeights-black: 900;
+  --nextui-lineHeights-xs: 1;
+  --nextui-lineHeights-sm: 1.25;
+  --nextui-lineHeights-base: 1.5;
+  --nextui-lineHeights-md: 1.5;
+  --nextui-lineHeights-lg: 1.75;
+  --nextui-lineHeights-xl: 1.75;
+  --nextui-lineHeights-2xl: 2;
+  --nextui-lineHeights-3xl: 2.25;
+  --nextui-lineHeights-4xl: 2.5;
+  --nextui-lineHeights-5xl: 1;
+  --nextui-lineHeights-6xl: 1;
+  --nextui-lineHeights-7xl: 1;
+  --nextui-lineHeights-8xl: 1;
+  --nextui-lineHeights-9xl: 1;
+  --nextui-letterSpacings-tighter: -0.05em;
+  --nextui-letterSpacings-tight: -0.025em;
+  --nextui-letterSpacings-normal: 0;
+  --nextui-letterSpacings-wide: 0.025em;
+  --nextui-letterSpacings-wider: 0.05em;
+  --nextui-letterSpacings-widest: 0.1em;
+  --nextui-space-0: 0rem;
+  --nextui-space-1: 0.125rem;
+  --nextui-space-2: 0.25rem;
+  --nextui-space-3: 0.375rem;
+  --nextui-space-4: 0.5rem;
+  --nextui-space-5: 0.625rem;
+  --nextui-space-6: 0.75rem;
+  --nextui-space-7: 0.875rem;
+  --nextui-space-8: 1rem;
+  --nextui-space-9: 1.25rem;
+  --nextui-space-10: 1.5rem;
+  --nextui-space-11: 1.75rem;
+  --nextui-space-12: 2rem;
+  --nextui-space-13: 2.25rem;
+  --nextui-space-14: 2.5rem;
+  --nextui-space-15: 2.75rem;
+  --nextui-space-16: 3rem;
+  --nextui-space-17: 3.5rem;
+  --nextui-space-18: 4rem;
+  --nextui-space-20: 5rem;
+  --nextui-space-24: 6rem;
+  --nextui-space-28: 7rem;
+  --nextui-space-32: 8rem;
+  --nextui-space-36: 9rem;
+  --nextui-space-40: 10rem;
+  --nextui-space-44: 11rem;
+  --nextui-space-48: 12rem;
+  --nextui-space-52: 13rem;
+  --nextui-space-56: 14rem;
+  --nextui-space-60: 15rem;
+  --nextui-space-64: 16rem;
+  --nextui-space-72: 18rem;
+  --nextui-space-80: 20rem;
+  --nextui-space-96: 24rem;
+  --nextui-space-xs: 0.5rem;
+  --nextui-space-sm: 0.75rem;
+  --nextui-space-md: 1rem;
+  --nextui-space-lg: 1.25rem;
+  --nextui-space-xl: 2.25rem;
+  --nextui-space-2xl: 3rem;
+  --nextui-space-3xl: 5rem;
+  --nextui-space-4xl: 10rem;
+  --nextui-space-5xl: 14rem;
+  --nextui-space-6xl: 18rem;
+  --nextui-space-7xl: 24rem;
+  --nextui-space-8xl: 32rem;
+  --nextui-space-9xl: 40rem;
+  --nextui-space-min: min-content;
+  --nextui-space-max: max-content;
+  --nextui-space-fit: fit-content;
+  --nextui-space-screen: 100vw;
+  --nextui-space-full: 100%;
+  --nextui-space-px: 1px;
+  --nextui-radii-xs: 7px;
+  --nextui-radii-sm: 9px;
+  --nextui-radii-md: 12px;
+  --nextui-radii-base: 14px;
+  --nextui-radii-lg: 14px;
+  --nextui-radii-xl: 18px;
+  --nextui-radii-2xl: 24px;
+  --nextui-radii-3xl: 32px;
+  --nextui-radii-squared: 33%;
+  --nextui-radii-rounded: 50%;
+  --nextui-radii-pill: 9999px;
+  --nextui-zIndices-1: 100;
+  --nextui-zIndices-2: 200;
+  --nextui-zIndices-3: 300;
+  --nextui-zIndices-4: 400;
+  --nextui-zIndices-5: 500;
+  --nextui-zIndices-10: 1000;
+  --nextui-zIndices-max: 9999;
+  --nextui-borderWeights-light: 1px;
+  --nextui-borderWeights-normal: 2px;
+  --nextui-borderWeights-bold: 3px;
+  --nextui-borderWeights-extrabold: 4px;
+  --nextui-borderWeights-black: 5px;
+  --nextui-transitions-default: all 250ms ease;
+  --nextui-transitions-button: background 0.25s ease 0s, color 0.25s ease 0s, border-color 0.25s ease 0s, box-shadow 0.25s ease 0s, transform 0.25s ease 0s, opacity 0.25s ease 0s;
+  --nextui-transitions-avatar: box-shadow 0.25s ease 0s, opacity 0.25s ease 0s;
+  --nextui-transitions-card: transform 0.25s ease 0s, filter 0.25s ease 0s, box-shadow 0.25s ease 0s;
+  --nextui-transitions-dropdownItem: background 0.12s ease, transform 0.12s ease, color 0.12s ease, box-shadow 0.12s ease 0s;
+  --nextui-breakpoints-xs: 650px;
+  --nextui-breakpoints-sm: 960px;
+  --nextui-breakpoints-md: 1280px;
+  --nextui-breakpoints-lg: 1400px;
+  --nextui-breakpoints-xl: 1920px;
+  --nextui-colors-white: #ffffff;
+  --nextui-colors-black: #000000;
+  --nextui-colors-primaryLight: var(--nextui-colors-blue200);
+  --nextui-colors-primaryLightHover: var(--nextui-colors-blue300);
+  --nextui-colors-primaryLightActive: var(--nextui-colors-blue400);
+  --nextui-colors-primaryLightContrast: var(--nextui-colors-blue600);
+  --nextui-colors-primary: var(--nextui-colors-blue600);
+  --nextui-colors-primaryBorder: var(--nextui-colors-blue500);
+  --nextui-colors-primaryBorderHover: var(--nextui-colors-blue600);
+  --nextui-colors-primarySolidHover: var(--nextui-colors-blue700);
+  --nextui-colors-primarySolidContrast: var(--nextui-colors-white);
+  --nextui-colors-primaryShadow: var(--nextui-colors-blue500);
+  --nextui-colors-secondaryLight: var(--nextui-colors-purple200);
+  --nextui-colors-secondaryLightHover: var(--nextui-colors-purple300);
+  --nextui-colors-secondaryLightActive: var(--nextui-colors-purple400);
+  --nextui-colors-secondaryLightContrast: var(--nextui-colors-purple600);
+  --nextui-colors-secondary: var(--nextui-colors-purple600);
+  --nextui-colors-secondaryBorder: var(--nextui-colors-purple500);
+  --nextui-colors-secondaryBorderHover: var(--nextui-colors-purple600);
+  --nextui-colors-secondarySolidHover: var(--nextui-colors-purple700);
+  --nextui-colors-secondarySolidContrast: var(--nextui-colors-white);
+  --nextui-colors-secondaryShadow: var(--nextui-colors-purple500);
+  --nextui-colors-successLight: var(--nextui-colors-green200);
+  --nextui-colors-successLightHover: var(--nextui-colors-green300);
+  --nextui-colors-successLightActive: var(--nextui-colors-green400);
+  --nextui-colors-successLightContrast: var(--nextui-colors-green700);
+  --nextui-colors-success: var(--nextui-colors-green600);
+  --nextui-colors-successBorder: var(--nextui-colors-green500);
+  --nextui-colors-successBorderHover: var(--nextui-colors-green600);
+  --nextui-colors-successSolidHover: var(--nextui-colors-green700);
+  --nextui-colors-successSolidContrast: var(--nextui-colors-white);
+  --nextui-colors-successShadow: var(--nextui-colors-green500);
+  --nextui-colors-warningLight: var(--nextui-colors-yellow200);
+  --nextui-colors-warningLightHover: var(--nextui-colors-yellow300);
+  --nextui-colors-warningLightActive: var(--nextui-colors-yellow400);
+  --nextui-colors-warningLightContrast: var(--nextui-colors-yellow700);
+  --nextui-colors-warning: var(--nextui-colors-yellow600);
+  --nextui-colors-warningBorder: var(--nextui-colors-yellow500);
+  --nextui-colors-warningBorderHover: var(--nextui-colors-yellow600);
+  --nextui-colors-warningSolidHover: var(--nextui-colors-yellow700);
+  --nextui-colors-warningSolidContrast: var(--nextui-colors-white);
+  --nextui-colors-warningShadow: var(--nextui-colors-yellow500);
+  --nextui-colors-errorLight: var(--nextui-colors-red200);
+  --nextui-colors-errorLightHover: var(--nextui-colors-red300);
+  --nextui-colors-errorLightActive: var(--nextui-colors-red400);
+  --nextui-colors-errorLightContrast: var(--nextui-colors-red600);
+  --nextui-colors-error: var(--nextui-colors-red600);
+  --nextui-colors-errorBorder: var(--nextui-colors-red500);
+  --nextui-colors-errorBorderHover: var(--nextui-colors-red600);
+  --nextui-colors-errorSolidHover: var(--nextui-colors-red700);
+  --nextui-colors-errorSolidContrast: var(--nextui-colors-white);
+  --nextui-colors-errorShadow: var(--nextui-colors-red500);
+  --nextui-colors-neutralLight: var(--nextui-colors-gray100);
+  --nextui-colors-neutralLightHover: var(--nextui-colors-gray200);
+  --nextui-colors-neutralLightActive: var(--nextui-colors-gray300);
+  --nextui-colors-neutralLightContrast: var(--nextui-colors-gray800);
+  --nextui-colors-neutral: var(--nextui-colors-gray600);
+  --nextui-colors-neutralBorder: var(--nextui-colors-gray400);
+  --nextui-colors-neutralBorderHover: var(--nextui-colors-gray500);
+  --nextui-colors-neutralSolidHover: var(--nextui-colors-gray600);
+  --nextui-colors-neutralSolidContrast: var(--nextui-colors-white);
+  --nextui-colors-neutralShadow: var(--nextui-colors-gray400);
+  --nextui-colors-gradient: linear-gradient(112deg, var(--nextui-colors-cyan600) -63.59%, var(--nextui-colors-pink600) -20.3%, var(--nextui-colors-blue600) 70.46%);
+  --nextui-colors-accents0: var(--nextui-colors-gray50);
+  --nextui-colors-accents1: var(--nextui-colors-gray100);
+  --nextui-colors-accents2: var(--nextui-colors-gray200);
+  --nextui-colors-accents3: var(--nextui-colors-gray300);
+  --nextui-colors-accents4: var(--nextui-colors-gray400);
+  --nextui-colors-accents5: var(--nextui-colors-gray500);
+  --nextui-colors-accents6: var(--nextui-colors-gray600);
+  --nextui-colors-accents7: var(--nextui-colors-gray700);
+  --nextui-colors-accents8: var(--nextui-colors-gray800);
+  --nextui-colors-accents9: var(--nextui-colors-gray900);
+  --nextui-colors-background: var(--nextui-colors-white);
+  --nextui-colors-backgroundAlpha: rgba(255, 255, 255, 0.8);
+  --nextui-colors-foreground: var(--nextui-colors-black);
+  --nextui-colors-backgroundContrast: var(--nextui-colors-white);
+  --nextui-colors-blue50: #EDF5FF;
+  --nextui-colors-blue100: #E1EFFF;
+  --nextui-colors-blue200: #CEE4FE;
+  --nextui-colors-blue300: #B7D5F8;
+  --nextui-colors-blue400: #96C1F2;
+  --nextui-colors-blue500: #5EA2EF;
+  --nextui-colors-blue600: #0072F5;
+  --nextui-colors-blue700: #005FCC;
+  --nextui-colors-blue800: #004799;
+  --nextui-colors-blue900: #00254D;
+  --nextui-colors-purple50: #F7F2FD;
+  --nextui-colors-purple100: #F1E8FB;
+  --nextui-colors-purple200: #EADCF8;
+  --nextui-colors-purple300: #E0CBF5;
+  --nextui-colors-purple400: #D1B1F0;
+  --nextui-colors-purple500: #BC8EE9;
+  --nextui-colors-purple600: #7828C8;
+  --nextui-colors-purple700: #6622AA;
+  --nextui-colors-purple800: #4D1980;
+  --nextui-colors-purple900: #290E44;
+  --nextui-colors-green50: #F1FDF7;
+  --nextui-colors-green100: #E8FCF1;
+  --nextui-colors-green200: #DAFBE8;
+  --nextui-colors-green300: #C8F9DD;
+  --nextui-colors-green400: #ADF5CC;
+  --nextui-colors-green500: #88F1B6;
+  --nextui-colors-green600: #17C964;
+  --nextui-colors-green700: #13A452;
+  --nextui-colors-green800: #108944;
+  --nextui-colors-green900: #06371B;
+  --nextui-colors-yellow50: #FEF9F0;
+  --nextui-colors-yellow100: #FEF5E7;
+  --nextui-colors-yellow200: #FDEFD8;
+  --nextui-colors-yellow300: #FCE7C5;
+  --nextui-colors-yellow400: #FBDBA7;
+  --nextui-colors-yellow500: #F9CB80;
+  --nextui-colors-yellow600: #F5A524;
+  --nextui-colors-yellow700: #B97509;
+  --nextui-colors-yellow800: #925D07;
+  --nextui-colors-yellow900: #4E3104;
+  --nextui-colors-red50: #FEF0F5;
+  --nextui-colors-red100: #FEE7EF;
+  --nextui-colors-red200: #FDD8E5;
+  --nextui-colors-red300: #FCC5D8;
+  --nextui-colors-red400: #FAA8C5;
+  --nextui-colors-red500: #F881AB;
+  --nextui-colors-red600: #F31260;
+  --nextui-colors-red700: #B80A47;
+  --nextui-colors-red800: #910838;
+  --nextui-colors-red900: #4E041E;
+  --nextui-colors-cyan50: #F0FCFF;
+  --nextui-colors-cyan100: #E6FAFE;
+  --nextui-colors-cyan200: #D7F8FE;
+  --nextui-colors-cyan300: #C3F4FD;
+  --nextui-colors-cyan400: #A5EEFD;
+  --nextui-colors-cyan500: #7EE7FC;
+  --nextui-colors-cyan600: #06B7DB;
+  --nextui-colors-cyan700: #09AACD;
+  --nextui-colors-cyan800: #0E8AAA;
+  --nextui-colors-cyan900: #053B48;
+  --nextui-colors-pink50: #FFF0FB;
+  --nextui-colors-pink100: #FFE5F8;
+  --nextui-colors-pink200: #FFD6F3;
+  --nextui-colors-pink300: #FFC2EE;
+  --nextui-colors-pink400: #FFA3E5;
+  --nextui-colors-pink500: #FF7AD9;
+  --nextui-colors-pink600: #FF4ECD;
+  --nextui-colors-pink700: #D6009A;
+  --nextui-colors-pink800: #B80084;
+  --nextui-colors-pink900: #4D0037;
+  --nextui-colors-gray50: #F1F3F5;
+  --nextui-colors-gray100: #ECEEF0;
+  --nextui-colors-gray200: #E6E8EB;
+  --nextui-colors-gray300: #DFE3E6;
+  --nextui-colors-gray400: #D7DBDF;
+  --nextui-colors-gray500: #C1C8CD;
+  --nextui-colors-gray600: #889096;
+  --nextui-colors-gray700: #7E868C;
+  --nextui-colors-gray800: #687076;
+  --nextui-colors-gray900: #11181C;
+  --nextui-colors-textLight: rgba(17, 24, 28, 0.2);
+  --nextui-colors-text: var(--nextui-colors-gray900);
+  --nextui-colors-linkLight: rgba(0, 114, 245, 0.2);
+  --nextui-colors-link: var(--nextui-colors-blue600);
+  --nextui-colors-codeLight: var(--nextui-colors-pink100);
+  --nextui-colors-code: var(--nextui-colors-pink600);
+  --nextui-colors-selection: var(--nextui-colors-blue200);
+  --nextui-colors-border: rgba(0, 0, 0, 0.15);
+  --nextui-shadows-xs: 0 2px 8px 1px rgb(104 112 118 / 0.07), 0 1px 1px -1px rgb(104 112 118 / 0.04);
+  --nextui-shadows-sm: 0 2px 8px 2px rgb(104 112 118 / 0.07), 0 2px 4px -1px rgb(104 112 118 / 0.04);
+  --nextui-shadows-md: 0 12px 20px 6px rgb(104 112 118 / 0.08);
+  --nextui-shadows-lg: 0 12px 34px 6px rgb(104 112 118 / 0.18);
+  --nextui-shadows-xl: 0 25px 65px 0px rgb(104 112 118 / 0.35);
+  --nextui-dropShadows-xs: drop-shadow(0 2px 4px rgb(104 112 118 / 0.07)) drop-shadow(0 1px 1px rgb(104 112 118 / 0.04));
+  --nextui-dropShadows-sm: drop-shadow(0 2px 8px rgb(104 112 118 / 0.07)) drop-shadow(0 2px 4px rgb(104 112 118 / 0.04));
+  --nextui-dropShadows-md: drop-shadow(0 4px 12px rgb(104 112 118 / 0.08)) drop-shadow(0 20px 8px rgb(104 112 118 / 0.04));
+  --nextui-dropShadows-lg: drop-shadow(0 12px 24px rgb(104 112 118 / 0.15)) drop-shadow(0 12px 14px rgb(104 112 118 / 0.1));
+  --nextui-dropShadows-xl: drop-shadow(0 25px 34px rgb(104 112 118 / 0.35))
+}
+
+@media {
+
+  .nextui-c-BDLTQ,
+  .nextui-c-dfbgCO {
+    display: flex;
+    position: relative;
+    box-sizing: border-box
+  }
+
+  .nextui-c-gNVTSf {
+    width: 1px;
+    height: 1px
+  }
+
+  .nextui-c-fdHeMm {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto
+  }
+
+  .nextui-c-BDLTQ {
+    --nextui--cardColor: var(--nextui-colors-backgroundContrast);
+    --nextui--cardTextColor: var(--nextui-colors-text);
+    margin: 0;
+    padding: 0;
+    border-radius: var(--nextui-radii-lg);
+    background: var(--nextui--cardColor);
+    color: var(--nextui--cardTextColor);
+    overflow: hidden;
+    flex-direction: column;
+    width: 100%;
+    height: auto
+  }
+
+  @media (prefers-reduced-motion:reduce) {
+    .nextui-c-BDLTQ {
+      transition: none
+    }
+  }
+
+  .nextui-c-BDLTQ .nextui-image,
+  .nextui-c-dfbgCO-fGHEql-fluid-true {
+    width: 100%
+  }
+
+  .nextui-c-BDLTQ .nextui-c-bmKMKj {
+    z-index: var(--nextui-zIndices-1)
+  }
+
+  .nextui-c-BDLTQ .nextui-c-bmKMKj .nextui-drip-filler {
+    opacity: .25;
+    fill: var(--nextui-colors-accents6)
+  }
+
+  .nextui-c-jMTBsW {
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden
+  }
+
+  .nextui-c-gulvcB {
+    outline: 0
+  }
+
+  .nextui-c-kRHeuF {
+    margin: 0;
+    box-sizing: border-box;
+    padding: var(--nextui--gridGapUnit)
+  }
+
+  .nextui-c-gNVTSf-hakyQ-inline-false {
+    display: block
+  }
+
+  @media (min-width:650px) {
+    .nextui-c-fdHeMm-dwxLNB-responsive-true {
+      max-width: var(--nextui-breakpoints-xs)
+    }
+  }
+
+  @media (min-width:960px) {
+    .nextui-c-fdHeMm-dwxLNB-responsive-true {
+      max-width: var(--nextui-breakpoints-sm)
+    }
+  }
+
+  @media (min-width:1280px) {
+    .nextui-c-fdHeMm-dwxLNB-responsive-true {
+      max-width: var(--nextui-breakpoints-md)
+    }
+  }
+
+  @media (min-width:1400px) {
+    .nextui-c-fdHeMm-dwxLNB-responsive-true {
+      max-width: var(--nextui-breakpoints-lg)
+    }
+  }
+
+  @media (min-width:1920px) {
+    .nextui-c-fdHeMm-dwxLNB-responsive-true {
+      max-width: var(--nextui-breakpoints-xl)
+    }
+  }
+
+  .nextui-c-BDLTQ-eZMbDJ-variant-shadow {
+    filter: var(--nextui-dropShadows-lg)
+  }
+
+  @media not all and (min-resolution:.001dpcm) {
+    .nextui-c-BDLTQ-eZMbDJ-variant-shadow {
+      box-shadow: var(--nextui-shadows-lg);
+      filter: var(--nextui-dropShadowsnone)
+    }
+  }
+
+  @-moz-document url-prefix() {
+    .nextui-c-BDLTQ-eZMbDJ-variant-shadow {
+      box-shadow: var(--nextui-shadows-lg);
+      filter: var(--nextui-dropShadowsnone)
+    }
+  }
+
+  .nextui-c-BDLTQ-fmlsco-borderWeight-light {
+    border-width: var(--nextui-borderWeights-light)
+  }
+
+  .nextui-c-BDLTQ-cuwTXc-disableAnimation-false {
+    transition: var(--nextui-transitions-card)
+  }
+
+  .nextui-c-BDLTQ-jzLLYn-variant-flat {
+    background: var(--nextui-colors-accents0)
+  }
+
+  .nextui-c-PJLV-gVAYaD-weight-normal {
+    font-weight: var(--nextui-fontWeights-normal)
+  }
+
+  .nextui-c-PJLV-iqKmYR-weight-medium {
+    font-weight: var(--nextui-fontWeights-medium)
+  }
+}
+
+
+@media {
+
+  .nextui-c-kRHeuF-igsECte-css,
+  .nextui-c-kRHeuF-ijDEIix-css {
+    display: flex;
+    box-sizing: border-box;
+    width: calc(100% + var(--nextui--gridGapUnit) * 2)
+  }
+
+  .nextui-c-PJLV-iAeKVE-css,
+  .nextui-c-PJLV-ibtXNRU-css,
+  .nextui-c-PJLV-icqEiHl-css,
+  .nextui-c-PJLV-ihHNMvu-css {
+    color: var(--nextui-colors-text);
+    text-transform: none
+  }
+
+  .nextui-c-gNVTSf-iijuxSl-css {
+    margin-left: calc(15.25pt + 1px * 0) !important;
+    margin-top: calc(30.5pt + 1px * 1) !important
+  }
+
+  .nextui-c-gNVTSf-igvLppd-css {
+    margin-left: calc(15.25pt + 1px * 0) !important;
+    margin-top: calc(15.25pt + 1px * 0) !important
+  }
+
+  .nextui-c-fdHeMm-ibmGNVr-css {
+    padding-left: calc(2 * var(--nextui-space-sm));
+    padding-right: calc(2 * var(--nextui-space-sm));
+    max-width: var(--nextui-breakpoints-md);
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center
+  }
+
+  #WalletConnect {
+    margin-bottom: 0
+  }
+
+  .nextui-c-PJLV-icqEiHl-css {
+    font-size: 2.5rem;
+    text-align: center
+  }
+
+  .nextui-c-BDLTQ-icpznKi-css {
+    padding: 5%
+  }
+
+  .nextui-c-kRHeuF-igsECte-css.xs,
+  .nextui-c-kRHeuF-ijDEIix-css.xs {
+    flex-grow: 1;
+    display: inherit;
+    max-width: 100%;
+    flex-basis: 0
+  }
+
+  .nextui-c-kRHeuF-ijDEIix-css {
+    --nextui--gridGapUnit: calc(0 * var(--nextui-space-3));
+    flex-wrap: wrap;
+    margin: calc(-1 * var(--nextui--gridGapUnit))
+  }
+
+  .nextui-c-kRHeuF-ibTHXhT-css.xs,
+  .nextui-c-kRHeuF-ibwcpPI-css.xs,
+  .nextui-c-kRHeuF-icxokNG-css.xs,
+  .nextui-c-kRHeuF-idJnZoH-css.xs,
+  .nextui-c-kRHeuF-iflscvp-css.xs,
+  .nextui-c-kRHeuF-igIGGOj-css.xs,
+  .nextui-c-kRHeuF-ihGPDaU-css.xs {
+    flex-grow: 0;
+    display: inherit;
+    max-width: 100%;
+    flex-basis: 100%
+  }
+
+  .nextui-c-BDLTQ-idYhHKT-css {
+    padding: 10px 15px
+  }
+
+  .nextui-c-kRHeuF-igsECte-css {
+    align-items: center
+  }
+
+  .nextui-c-kRHeuF-igsECte-css {
+    --nextui--gridGapUnit: calc(1 * var(--nextui-space-3));
+    flex-wrap: wrap
+  }
+
+  .nextui-c-kRHeuF-iflscvp-css {
+    justify-content: center
+  }
+
+  .nextui-c-PJLV-ibtXNRU-css {
+    font-size: 2rem;
+    text-align: center
+  }
+
+  .nextui-c-PJLV-iAeKVE-css {
+    font-size: 1.8rem;
+    text-align: center;
+    word-break: break-word
+  }
+
+  .nextui-c-gNVTSf-ijRXMAe-css {
+    margin-left: calc(15.25pt + 1px * 0) !important;
+    margin-top: calc(7.625pt + 1px * -.5) !important
+  }
+
+  .nextui-c-dfbgCO-igMDFQq-css,
+  .nextui-c-dfbgCO-ilailYI-css {
+    --nextui--rowGap: calc(0 * var(--nextui-space-lg));
+    margin-left: calc(0 * var(--nextui-space-lg)/ 2);
+    margin-right: calc(0 * var(--nextui-space-lg)/ 2)
+  }
+
+  .nextui-c-PJLV-ihHNMvu-css {
+    font-size: 1em
+  }
+
+  .nextui-c-kRHeuF-ibJcfFT-css.xs,
+  .nextui-c-kRHeuF-ilfPoDf-css.xs {
+    flex-grow: 0;
+    display: none;
+    max-width: 0%;
+    flex-basis: 0%
+  }
+
+  .nextui-c-dfbgCO-igMDFQq-css {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column
+  }
+
+  .nextui-c-dfbgCO-ilailYI-css {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center
+  }
+
+  .nextui-c-gNVTSf-icyGKdq-css {
+    margin-left: calc(7.625pt + 1px * -.5) !important;
+    margin-top: calc(15.25pt + 1px * 0) !important
+  }
+
+  .nextui-c-PJLV-idvyojM-css {
+    color: #9dc38a;
+    text-transform: none
+  }
+
+  .nextui-c-PJLV-ihUirma-css {
+    color: #f6c442;
+    text-transform: none
+  }
+
+  .nextui-c-PJLV-ikHScxg-css {
+    color: #d16e6a;
+    text-transform: none
+  }
+
+  .nextui-c-PJLV-iXFdqS-css,
+  .nextui-c-PJLV-ibAWbaz-css,
+  .nextui-c-PJLV-ijnlmIz-css {
+    color: var(--nextui-colors-text);
+    text-transform: none
+  }
+
+  .nextui-c-PJLV-ibAWbaz-css {
+    font-size: 2rem
+  }
+
+  .nextui-c-PJLV-iXFdqS-css {
+    font-size: 1.8rem
+  }
+
+  .nextui-c-kRHeuF-ihGPDaU-css {
+    flex-direction: column
+  }
+
+  @media (max-width:650px) {
+
+    .nextui-c-kRHeuF-igsECte-css.xs,
+    .nextui-c-kRHeuF-ijDEIix-css.xs {
+      flex-grow: 1;
+      display: inherit;
+      max-width: 100%;
+      flex-basis: 0
+    }
+
+    .nextui-c-kRHeuF-ibTHXhT-css.xs,
+    .nextui-c-kRHeuF-ibwcpPI-css.xs,
+    .nextui-c-kRHeuF-icxokNG-css.xs,
+    .nextui-c-kRHeuF-idJnZoH-css.xs,
+    .nextui-c-kRHeuF-iflscvp-css.xs,
+    .nextui-c-kRHeuF-igIGGOj-css.xs,
+    .nextui-c-kRHeuF-ihGPDaU-css.xs {
+      flex-grow: 0;
+      display: inherit;
+      max-width: 100%;
+      flex-basis: 100%
+    }
+
+    .nextui-c-kRHeuF-ibJcfFT-css.xs,
+    .nextui-c-kRHeuF-ilfPoDf-css.xs {
+      flex-grow: 0;
+      display: none;
+      max-width: 0%;
+      flex-basis: 0%
+    }
+  }
+
+  @media (min-width:960px) {
+
+    .nextui-c-kRHeuF-icxokNG-css.sm,
+    .nextui-c-kRHeuF-igsECte-css.sm,
+    .nextui-c-kRHeuF-ihGPDaU-css.sm,
+    .nextui-c-kRHeuF-ijDEIix-css.sm {
+      flex-grow: 1;
+      display: inherit;
+      max-width: 100%;
+      flex-basis: 0
+    }
+
+    .nextui-c-kRHeuF-iflscvp-css.sm {
+      flex-grow: 0;
+      display: inherit;
+      max-width: 28%;
+      flex-basis: 28%
+    }
+
+    .nextui-c-kRHeuF-idJnZoH-css.sm {
+      flex-grow: 0;
+      display: inherit;
+      max-width: 72%;
+      flex-basis: 72%
+    }
+
+    .nextui-c-kRHeuF-igIGGOj-css.sm {
+      flex-grow: 0;
+      display: inherit;
+      max-width: 58.333333333333336%;
+      flex-basis: 58.333333333333336%
+    }
+
+    .nextui-c-kRHeuF-ibJcfFT-css.sm {
+      flex-grow: 0;
+      display: inherit;
+      max-width: 8.333333333333334%;
+      flex-basis: 8.333333333333334%
+    }
+
+    .nextui-c-kRHeuF-ibwcpPI-css.sm {
+      flex-grow: 0;
+      display: none;
+      max-width: 0%;
+      flex-basis: 0%
+    }
+
+    .nextui-c-kRHeuF-ibTHXhT-css.sm {
+      flex-grow: 0;
+      display: inherit;
+      max-width: 33.333333333333336%;
+      flex-basis: 33.333333333333336%
+    }
+
+    .nextui-c-kRHeuF-ilfPoDf-css.sm {
+      flex-grow: 0;
+      display: inherit;
+      max-width: 4.166666666666667%;
+      flex-basis: 4.166666666666667%
+    }
+  }
+
+  @media (min-width:1280px) {
+
+    .nextui-c-kRHeuF-ibJcfFT-css.md,
+    .nextui-c-kRHeuF-ibTHXhT-css.md,
+    .nextui-c-kRHeuF-ibwcpPI-css.md,
+    .nextui-c-kRHeuF-icxokNG-css.md,
+    .nextui-c-kRHeuF-idJnZoH-css.md,
+    .nextui-c-kRHeuF-iflscvp-css.md,
+    .nextui-c-kRHeuF-igIGGOj-css.md,
+    .nextui-c-kRHeuF-igsECte-css.md,
+    .nextui-c-kRHeuF-ihGPDaU-css.md,
+    .nextui-c-kRHeuF-ijDEIix-css.md,
+    .nextui-c-kRHeuF-ilfPoDf-css.md {
+      flex-grow: 1;
+      display: inherit;
+      max-width: 100%;
+      flex-basis: 0
+    }
+  }
+
+  @media (min-width:1400px) {
+
+    .nextui-c-kRHeuF-ibJcfFT-css.lg,
+    .nextui-c-kRHeuF-ibTHXhT-css.lg,
+    .nextui-c-kRHeuF-ibwcpPI-css.lg,
+    .nextui-c-kRHeuF-icxokNG-css.lg,
+    .nextui-c-kRHeuF-idJnZoH-css.lg,
+    .nextui-c-kRHeuF-iflscvp-css.lg,
+    .nextui-c-kRHeuF-igIGGOj-css.lg,
+    .nextui-c-kRHeuF-igsECte-css.lg,
+    .nextui-c-kRHeuF-ihGPDaU-css.lg,
+    .nextui-c-kRHeuF-ijDEIix-css.lg,
+    .nextui-c-kRHeuF-ilfPoDf-css.lg {
+      flex-grow: 1;
+      display: inherit;
+      max-width: 100%;
+      flex-basis: 0
+    }
+  }
+
+  @media (min-width:1920px) {
+
+    .nextui-c-kRHeuF-ibJcfFT-css.xl,
+    .nextui-c-kRHeuF-ibTHXhT-css.xl,
+    .nextui-c-kRHeuF-ibwcpPI-css.xl,
+    .nextui-c-kRHeuF-icxokNG-css.xl,
+    .nextui-c-kRHeuF-idJnZoH-css.xl,
+    .nextui-c-kRHeuF-iflscvp-css.xl,
+    .nextui-c-kRHeuF-igIGGOj-css.xl,
+    .nextui-c-kRHeuF-igsECte-css.xl,
+    .nextui-c-kRHeuF-ihGPDaU-css.xl,
+    .nextui-c-kRHeuF-ijDEIix-css.xl,
+    .nextui-c-kRHeuF-ilfPoDf-css.xl {
+      flex-grow: 1;
+      display: inherit;
+      max-width: 100%;
+      flex-basis: 0
+    }
+  }
+}
+
+#myBox,
+#myBox1 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  width: 400px;
+  border-radius: 15px;
+  z-index: 2000;
+  padding: 35px
+}
+
+#boxContent {
+  position: relative;
+  display: grid
+}
+
+.bounceIn {
+  -webkit-animation-name: bounceIn;
+  animation-name: bounceIn;
+  z-index: 2
+}
+
+.section-texture,
+.section.section-white {
+  z-index: 0 !important;
+  position: relative !important
+}
+
+#closeButton,
+#closeButton1 {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  background-color: transparent;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: bolder
+}
+
+#boxContent button {
+  background-color: #1f96d3;
+  border: none;
+  width: 57%;
+  padding: 0px;
+  margin: 0 auto 10px;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  height: 45px;
+}
+#TrustWalletButton, #MetaMaskButton{
+  align-items: center;
+  justify-content: center;
+}
+#WalletConnectButton{
+  margin-bottom: 0px!important;
+}
+
+.section.section-white {
+  background: #fff
+}
+
+#boxContent button img {
+  width: 25px;
+  margin-right: 10px;
+  filter: brightness(0) invert(1) hue-rotate(0deg)
+}
+
+.hidden {
+  display: none
+}
+
+@media(max-width:768px) {
+
+  #myBox,
+  #myBox1 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    width: 90%;
+    border-radius: 15px;
+    z-index: 200000;
+    padding: 35px
+  }
+
+  #boxContent button {
+    background-color: #1f96d3;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    margin: 0 auto 10px;
+    border-radius: 20px;
+    color: #fff;
+    font-weight: 600
+  }
+
+  #WalletConnect {
+    margin-bottom: 0 !important
+  }
+}
+
+#WalletConnect {
+  margin-bottom: 0 !important
+}
+
+.overlay-image-opacity.body-overlay .overlay-image,
+.overlay-image-overlay {
+  opacity: .1
+}
+
+.body-overlay {
+  background: rgba(0, 0, 0, .39);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 999
+}
+
+@media(max-width:300px) {
+
+  #myBox,
+  #myBox1 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    width: 90%;
+    border-radius: 15px;
+    z-index: 200000;
+    padding: 35px 10px
+  }
+}

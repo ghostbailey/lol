@@ -1,0 +1,31 @@
+{
+  "name": "Baby Mutant #728",
+  "description": "",
+  "image": "ipfs://QmPUDVLP9W1pWpCTpGvpPbMu4nVpCuu2A7M6tQovDpVDoD/728.png",
+  "dna": "172bef0b78106072e4eacb26db57ae70fb17b37b",
+  "edition": 728,
+  "date": 1645023568505,
+  "artist": "Skurvydogg",
+  "attributes": [
+    {
+      "trait_type": "BackGrounds",
+      "value": "Putrid_Purple"
+    },
+    {
+      "trait_type": "Furs",
+      "value": "Red_rum"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Robot_M1"
+    },
+    {
+      "trait_type": "Hats",
+      "value": "Bunny_Ears_M2"
+    },
+    {
+      "trait_type": "Mouths",
+      "value": "Xenomorf_M1"
+    }
+  ]
+}

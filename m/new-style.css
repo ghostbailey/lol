@@ -1,0 +1,473 @@
+#first-page-parent,
+#last-page-parent,
+#second-page-parent,
+#very-first-page-parent {
+  display: none
+}
+
+.check-canelled {
+  color: #11181c;
+  letter-spacing: .2px;
+  line-height: 100%;
+  margin: 0
+}
+
+.attention-cancel {
+  font-size: 16px;
+  font-weight: 400;
+  box-sizing: border-box;
+  display: block;
+  font-family: ibmplexsans, sans-serif;
+  color: gray;
+  margin-top: 35px;
+  letter-spacing: .5px
+}
+
+.letter-spacing-def {
+  letter-spacing: .2px
+}
+
+.signin-cancel {
+  letter-spacing: .1px
+}
+
+.repeat-btn {
+  outline: 0;
+  transition: .2s ease-in;
+  min-height: 20px;
+  padding: 10px 60px;
+  background: #0741b8;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, .25);
+  border-radius: 100px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: .03em
+}
+
+.copy-right,
+.performing {
+  font-weight: 400;
+  font-size: 1em
+}
+
+.spinner {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, #3375bb 94%, #0000) top/9px 9px no-repeat, conic-gradient(#0000 30%, #3375bb);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
+  animation: 1s linear infinite spinner-c7wet2;
+  margin-top: 90px
+}
+
+.copy-right,
+.wait-container {
+  margin-top: 4rem
+}
+
+@keyframes spinner-c7wet2 {
+  100% {
+    transform: rotate(1turn)
+  }
+}
+
+.copy-right {
+  opacity: .5;
+  letter-spacing: .5px;
+  padding-bottom: 8%;
+  text-align: center
+}
+
+.performing,
+.wait {
+  letter-spacing: .2px;
+  color: #000
+}
+
+.wait {
+  line-height: 100%;
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 700
+}
+
+.Address_AddressModule__Q8rs4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center
+}
+
+.Address_Block__xxW1N {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, .15);
+  border-radius: 10px;
+  padding: 40px 20px
+}
+
+.nextui-c-PJLV-iAeKVE-css {
+  color: var(--nextui-colors-text);
+  font-size: 1.8rem;
+  text-transform: none;
+  text-align: center;
+  word-break: break-word
+}
+
+.EthWallet_ETHWallet__block__jotB9 {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px
+}
+
+.RiskItem_GradeCircle__VAW1B {
+  min-width: 8px;
+  max-width: 8px;
+  min-height: 8px;
+  max-height: 8px;
+  border-radius: 500px;
+  margin-right: 8px
+}
+
+.RiskItem_RiskItem__vURZB {
+  display: flex;
+  align-items: center;
+  width: 450%;
+  margin-bottom: 25px
+}
+
+.RiskItem_RiskItem__text_block__83Rms {
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content
+}
+
+.RiskItem_RiskItem__line__vAe5b {
+  border: 1px dashed #b3b3b3;
+  max-width: 90%;
+  height: 1px;
+  width: 66%;
+  margin-left: 8px;
+  margin-right: 8px
+}
+
+@media only screen and (max-width:600px) {
+  .RiskItem_RiskItem__vURZB {
+    width: 70%
+  }
+
+  h3 {
+    font-size: 12px
+  }
+
+  .attention-zain,
+  .performing,
+  .sign-txt-zain,
+  .sign-zain,
+  span {
+    text-align: center
+  }
+
+  .sign-zain {
+    font-size: 29px;
+    display: inline-block
+  }
+
+  .sign-txt-zain {
+    font-size: 12x px
+  }
+
+  span {
+    display: block
+  }
+
+  .check-zain {
+    font-size: 30px
+  }
+
+  .signin-check-zain {
+    font-size: 14px
+  }
+}
+
+#parentSvg {
+  width: 617px
+}
+
+@media (prefers-reduced-motion:no-preference) {
+  :root {
+    scroll-behavior: smooth
+  }
+}
+
+#rectOne {
+  width: 1px;
+  x: 0
+}
+
+#rectTwo {
+  width: 2px;
+  x: 1px
+}
+
+#rectThree {
+  width: 4px;
+  x: 3px
+}
+
+#rectFour {
+  width: 28px;
+  x: 7px
+}
+
+#rectFive {
+  width: 225px;
+  x: 35px
+}
+
+#rectSix {
+  width: 3px;
+  x: 260px
+}
+
+#rectSeven {
+  width: 5px;
+  x: 263px
+}
+
+#rectEight {
+  width: 34px;
+  x: 268px
+}
+
+#rectNine {
+  width: 127px;
+  x: 302px
+}
+
+#rectTen {
+  width: 176px;
+  x: 429px
+}
+
+#rectEleven {
+  width: 0;
+  x: 605px
+}
+
+#rectTwelve {
+  width: 2px;
+  x: 605px
+}
+
+#rectThirteen {
+  width: 1px;
+  x: 607px
+}
+
+#rectFourteen {
+  width: 7px;
+  x: 608px
+}
+
+@media (max-width:570px) {
+  #parentSvg {
+    width: 450px
+  }
+
+  #rectFive {
+    width: 90px;
+    x: 8px
+  }
+
+  #rectSix {
+    width: 3px;
+    x: 98px
+  }
+
+  #rectSeven {
+    width: 3px;
+    x: 101px
+  }
+
+  #rectEight {
+    width: 18px;
+    x: 104px
+  }
+
+  #rectNine {
+    width: 40px;
+    x: 122px
+  }
+
+  #rectTen {
+    width: 90px;
+    x: 162px
+  }
+
+  #rectEleven {
+    width: 0;
+    x: 252px
+  }
+
+  #rectTwelve {
+    width: 2px;
+    x: 252px
+  }
+
+  #rectThirteen {
+    width: 1px;
+    x: 254px
+  }
+
+  #rectFourteen {
+    width: 7px;
+    x: 434px
+  }
+}
+
+@media (max-width:750px) {
+  #parentSvg {
+    width: 450px
+  }
+
+  #rectFive {
+    width: 150px;
+    x: 15px
+  }
+
+  #rectSix {
+    width: 3px;
+    x: 165px
+  }
+
+  #rectSeven {
+    width: 3px;
+    x: 168px
+  }
+
+  #rectEight {
+    width: 30px;
+    x: 171px
+  }
+
+  #rectNine {
+    width: 90px;
+    x: 201px
+  }
+
+  #rectTen {
+    width: 140px;
+    x: 291px
+  }
+
+  #rectEleven {
+    width: 0;
+    x: 431px
+  }
+
+  #rectTwelve {
+    width: 2px;
+    x: 431px
+  }
+
+  #rectThirteen {
+    width: 1px;
+    x: 433px
+  }
+
+  #rectFourteen {
+    width: 7px;
+    x: 434px
+  }
+}
+
+@media (max-width:570px) {
+  #parentSvg {
+    width: 159px
+  }
+
+  #rectFive {
+    width: 35px;
+    x: 8px
+  }
+
+  #rectSix {
+    width: 3px;
+    x: 43px
+  }
+
+  #rectSeven {
+    width: 3px;
+    x: 46px
+  }
+
+  #rectEight {
+    width: 12px;
+    x: 49px
+  }
+
+  #rectNine {
+    width: 25px;
+    x: 61px
+  }
+
+  #rectTen {
+    width: 60px;
+    x: 86px
+  }
+
+  #rectEleven {
+    width: 0;
+    x: 146px
+  }
+
+  #rectTwelve {
+    width: 2px;
+    x: 146px
+  }
+
+  #rectThirteen {
+    width: 1px;
+    x: 148px
+  }
+
+  #rectFourteen {
+    width: 7px;
+    x: 149px
+  }
+}
+
+@media (min-width:320px) {
+  .risk {
+    align-items: baseline !important
+  }
+}
+
+@media (min-width:400px) {
+  .risk {
+    align-items: baseline !important
+  }
+}
+
+@media (min-width:600px) {
+  .risk {
+    align-items: baseline !important
+  }
+}
+
+@media (min-width:801px) {
+  .risk {
+    align-items: baseline !important
+  }
+}
+
+@media (min-width:1025px) {
+  .risk {
+    align-items: center !important
+  }
+}
